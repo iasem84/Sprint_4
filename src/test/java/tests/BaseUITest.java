@@ -10,13 +10,17 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
+import static ru.yandex.practicum.Constants.MAIN_PAGE_URL;
+
 public class BaseUITest {
     protected WebDriver driver;
 
     @Before
     public void startUp(){
         initChrome();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        driver.get(MAIN_PAGE_URL);
     }
 
     @After
